@@ -3,12 +3,12 @@ import React from "react";
 import ayush from "../Components/AboutUs/ayush.jpeg";
 import austin from "../Components/AboutUs/austin.jpg";
 
-const AboutUs = (props) => {
+const AboutUs = ({ mode }) => {
     return (
         <>
             <div
                 className={`container my-5 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <h1 className="mb-5">About Us</h1>
@@ -30,9 +30,7 @@ const AboutUs = (props) => {
                                 <div className="d-flex justify-content-center">
                                     <button
                                         className={`btn me-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -40,7 +38,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
@@ -50,9 +48,7 @@ const AboutUs = (props) => {
                                     </button>
                                     <button
                                         className={`btn mx-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -60,7 +56,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
@@ -70,9 +66,7 @@ const AboutUs = (props) => {
                                     </button>
                                     <button
                                         className={`btn ms-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -80,7 +74,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
@@ -107,9 +101,7 @@ const AboutUs = (props) => {
                                 <div className="d-flex justify-content-center">
                                     <button
                                         className={`btn me-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -117,7 +109,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
@@ -127,9 +119,7 @@ const AboutUs = (props) => {
                                     </button>
                                     <button
                                         className={`btn mx-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -137,7 +127,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
@@ -147,9 +137,7 @@ const AboutUs = (props) => {
                                     </button>
                                     <button
                                         className={`btn ms-2 btn-${
-                                            props.mode === "light"
-                                                ? "dark"
-                                                : "light"
+                                            mode === "light" ? "dark" : "light"
                                         }`}
                                     >
                                         <a
@@ -157,7 +145,7 @@ const AboutUs = (props) => {
                                             style={{
                                                 textDecoration: "none",
                                                 color:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "black",
                                             }}
