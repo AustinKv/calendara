@@ -1,30 +1,25 @@
-const HomeServicesCard = (props) => {
+const HomeServicesCard = ({ mode, service }) => {
     return (
         <>
             <div
                 className={`card my-4 border-secondary ${
-                    props.mode === "light" ? "-subtle" : ""
+                    mode === "light" ? "-subtle" : ""
                 }`}
                 style={{ width: "30rem", overflow: "auto" }}
             >
-                <img
-                    src={props.service.imgUrl}
-                    className="card-img-top"
-                    alt="..."
-                />
+                <img src={service.imgUrl} className="card-img-top" alt="..." />
                 <div
                     className="card-body"
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#4E5259",
+                        backgroundColor: mode === "light" ? "white" : "#4E5259",
                     }}
                 >
                     <p
                         className={`card-text text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
-                        {props.service.text}
+                        {service.text}
                     </p>
                 </div>
             </div>

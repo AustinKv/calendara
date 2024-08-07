@@ -1,4 +1,4 @@
-const HomeAccordion = (props) => {
+const HomeAccordion = ({ mode }) => {
     const faqData = [
         {
             question: "What is the purpose of calendara?",
@@ -21,15 +21,13 @@ const HomeAccordion = (props) => {
                     <h2 className="accordion-header">
                         <button
                             className={`accordion-button ${
-                                props.mode === "light" ? "" : "dark-dropdown"
+                                mode === "light" ? "" : "dark-dropdown"
                             } text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             } collapsed`}
                             style={{
                                 backgroundColor:
-                                    props.mode === "light"
-                                        ? "white"
-                                        : "#36393e",
+                                    mode === "light" ? "white" : "#36393e",
                             }}
                             type="button"
                             data-bs-toggle="collapse"
@@ -49,14 +47,12 @@ const HomeAccordion = (props) => {
                             className="accordion-body"
                             style={{
                                 backgroundColor:
-                                    props.mode === "light"
-                                        ? "white"
-                                        : "#36393e",
+                                    mode === "light" ? "white" : "#36393e",
                             }}
                         >
                             <p
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 {faq.answer}

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const UpdateProfile = (props) => {
+const UpdateProfile = ({ mode }) => {
     //States
     const [profileImageData, setProfileImageData] = useState("");
     const [profileImagePreview, setProfileImagePreview] = useState(null);
@@ -10,7 +10,8 @@ const UpdateProfile = (props) => {
 
     const [backgroundImageData, setBackgroundImageData] = useState("");
     const [backgroundImagePreview, setBackgroundImagePreview] = useState(null);
-    const [backgroundSuccessMessage, setBackgroundSuccessMessage] = useState(null);
+    const [backgroundSuccessMessage, setBackgroundSuccessMessage] =
+        useState(null);
 
     const [newUserName, setNewUserName] = useState("");
     const [newUserContact, setNewUserContact] = useState("");
@@ -169,14 +170,12 @@ const UpdateProfile = (props) => {
     return (
         <>
             <div className="container my-5">
-
                 {!authenticated && (
-
                     <>
                         <div className="container my-5">
                             <h3
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 Update Profile Picture
@@ -186,16 +185,22 @@ const UpdateProfile = (props) => {
                                     <input
                                         type="file"
                                         className={`form-control ${
-                                            props.mode === "light" ? "" : "border-secondary"
+                                            mode === "light"
+                                                ? ""
+                                                : "border-secondary"
                                         }`}
                                         id="inputGroupFile"
                                         accept="image/*"
                                         onChange={handleProfileImageChange}
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light" ? "" : "#4d4d4d",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#4d4d4d",
                                             WebkitTextFillColor:
-                                                props.mode === "light" ? "" : "#e6e6e6",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#e6e6e6",
                                         }}
                                         required
                                     />
@@ -204,7 +209,9 @@ const UpdateProfile = (props) => {
                                     <div className="mt-5 d-flex justify-content-center">
                                         <p
                                             className={`m-0 d-flex align-items-center me-5 text-${
-                                                props.mode === "light" ? "black" : "white"
+                                                mode === "light"
+                                                    ? "black"
+                                                    : "white"
                                             }`}
                                             style={{ fontSize: "1.5rem" }}
                                         >
@@ -223,7 +230,9 @@ const UpdateProfile = (props) => {
                                 {successProfileMesage && (
                                     <div
                                         className={`alert alert-${
-                                            props.mode === "light" ? "primary" : "warning"
+                                            mode === "light"
+                                                ? "primary"
+                                                : "warning"
                                         } mt-3`}
                                         role="alert"
                                     >
@@ -234,7 +243,7 @@ const UpdateProfile = (props) => {
                             <div className="container d-flex justify-content-center mt-5">
                                 <button
                                     className={`btn btn-${
-                                        props.mode === "light" ? "primary" : "warning"
+                                        mode === "light" ? "primary" : "warning"
                                     }`}
                                     onClick={storeProfileImage}
                                 >
@@ -245,7 +254,7 @@ const UpdateProfile = (props) => {
                         <div className="container my-5">
                             <h3
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 Update Background Picture
@@ -255,16 +264,22 @@ const UpdateProfile = (props) => {
                                     <input
                                         type="file"
                                         className={`form-control ${
-                                            props.mode === "light" ? "" : "border-secondary"
+                                            mode === "light"
+                                                ? ""
+                                                : "border-secondary"
                                         }`}
                                         id="inputGroupFile"
                                         accept="image/*"
                                         onChange={handleBackgroundImageChange}
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light" ? "" : "#4d4d4d",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#4d4d4d",
                                             WebkitTextFillColor:
-                                                props.mode === "light" ? "" : "#e6e6e6",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#e6e6e6",
                                         }}
                                         required
                                     />
@@ -273,7 +288,9 @@ const UpdateProfile = (props) => {
                                     <div className="mt-5 d-flex justify-content-center">
                                         <p
                                             className={`m-0 d-flex align-items-center me-5 text-${
-                                                props.mode === "light" ? "black" : "white"
+                                                mode === "light"
+                                                    ? "black"
+                                                    : "white"
                                             }`}
                                             style={{ fontSize: "1.5rem" }}
                                         >
@@ -291,7 +308,9 @@ const UpdateProfile = (props) => {
                                 {backgroundSuccessMessage && (
                                     <div
                                         className={`alert alert-${
-                                            props.mode === "light" ? "primary" : "warning"
+                                            mode === "light"
+                                                ? "primary"
+                                                : "warning"
                                         } mt-3`}
                                         role="alert"
                                     >
@@ -302,7 +321,7 @@ const UpdateProfile = (props) => {
                             <div className="container d-flex justify-content-center mt-5">
                                 <button
                                     className={`btn btn-${
-                                        props.mode === "light" ? "primary" : "warning"
+                                        mode === "light" ? "primary" : "warning"
                                     }`}
                                     onClick={storeBackgroundImage}
                                 >
@@ -313,7 +332,7 @@ const UpdateProfile = (props) => {
                         <div className="container my-5">
                             <h3
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 Update User Name
@@ -322,30 +341,41 @@ const UpdateProfile = (props) => {
                                 <p
                                     style={{ fontSize: "1.25rem" }}
                                     className={`text-${
-                                        props.mode === "light" ? "black" : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
-                                    Current User Name: {localStorage.getItem("userName")}
+                                    Current User Name:{" "}
+                                    {localStorage.getItem("userName")}
                                 </p>
                                 <div className="input-group mb-3">
                                     <input
                                         type="text"
                                         className={`form-control ${
-                                            props.mode === "light" ? "" : "border-secondary"
+                                            mode === "light"
+                                                ? ""
+                                                : "border-secondary"
                                         }`}
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light" ? "" : "#4d4d4d",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#4d4d4d",
                                             WebkitTextFillColor:
-                                                props.mode === "light" ? "" : "#e6e6e6",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#e6e6e6",
                                         }}
                                         value={newUserName}
-                                        onChange={(e) => setNewUserName(e.target.value)}
+                                        onChange={(e) =>
+                                            setNewUserName(e.target.value)
+                                        }
                                         placeholder="New User Name"
                                     />
                                     <button
                                         className={`btn btn-${
-                                            props.mode === "light" ? "primary" : "warning"
+                                            mode === "light"
+                                                ? "primary"
+                                                : "warning"
                                         }`}
                                         onClick={updateUserName}
                                     >
@@ -357,7 +387,7 @@ const UpdateProfile = (props) => {
                         <div className="container my-5">
                             <h3
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 Update Contact Number
@@ -366,7 +396,7 @@ const UpdateProfile = (props) => {
                                 <p
                                     style={{ fontSize: "1.25rem" }}
                                     className={`text-${
-                                        props.mode === "light" ? "black" : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     Current Contact Number:{" "}
@@ -376,21 +406,31 @@ const UpdateProfile = (props) => {
                                     <input
                                         type="text"
                                         className={`form-control ${
-                                            props.mode === "light" ? "" : "border-secondary"
+                                            mode === "light"
+                                                ? ""
+                                                : "border-secondary"
                                         }`}
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light" ? "" : "#4d4d4d",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#4d4d4d",
                                             WebkitTextFillColor:
-                                                props.mode === "light" ? "" : "#e6e6e6",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#e6e6e6",
                                         }}
                                         value={newUserContact}
-                                        onChange={(e) => setNewUserContact(e.target.value)}
+                                        onChange={(e) =>
+                                            setNewUserContact(e.target.value)
+                                        }
                                         placeholder="New Contact Number"
                                     />
                                     <button
                                         className={`btn btn-${
-                                            props.mode === "light" ? "primary" : "warning"
+                                            mode === "light"
+                                                ? "primary"
+                                                : "warning"
                                         }`}
                                         onClick={updateUserContact}
                                     >
@@ -400,16 +440,14 @@ const UpdateProfile = (props) => {
                             </div>
                         </div>
                     </>
-
                 )}
-                        
-                {authenticated && (
 
+                {authenticated && (
                     <>
                         <div className="container my-5">
                             <h3
                                 className={`text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 Update Background Picture
@@ -419,16 +457,22 @@ const UpdateProfile = (props) => {
                                     <input
                                         type="file"
                                         className={`form-control ${
-                                            props.mode === "light" ? "" : "border-secondary"
+                                            mode === "light"
+                                                ? ""
+                                                : "border-secondary"
                                         }`}
                                         id="inputGroupFile"
                                         accept="image/*"
                                         onChange={handleBackgroundImageChange}
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light" ? "" : "#4d4d4d",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#4d4d4d",
                                             WebkitTextFillColor:
-                                                props.mode === "light" ? "" : "#e6e6e6",
+                                                mode === "light"
+                                                    ? ""
+                                                    : "#e6e6e6",
                                         }}
                                         required
                                     />
@@ -437,7 +481,9 @@ const UpdateProfile = (props) => {
                                     <div className="mt-5 d-flex justify-content-center">
                                         <p
                                             className={`m-0 d-flex align-items-center me-5 text-${
-                                                props.mode === "light" ? "black" : "white"
+                                                mode === "light"
+                                                    ? "black"
+                                                    : "white"
                                             }`}
                                             style={{ fontSize: "1.5rem" }}
                                         >
@@ -455,7 +501,9 @@ const UpdateProfile = (props) => {
                                 {backgroundSuccessMessage && (
                                     <div
                                         className={`alert alert-${
-                                            props.mode === "light" ? "primary" : "warning"
+                                            mode === "light"
+                                                ? "primary"
+                                                : "warning"
                                         } mt-3`}
                                         role="alert"
                                     >
@@ -466,7 +514,7 @@ const UpdateProfile = (props) => {
                             <div className="container d-flex justify-content-center mt-5">
                                 <button
                                     className={`btn btn-${
-                                        props.mode === "light" ? "primary" : "warning"
+                                        mode === "light" ? "primary" : "warning"
                                     }`}
                                     onClick={storeBackgroundImage}
                                 >
@@ -475,9 +523,7 @@ const UpdateProfile = (props) => {
                             </div>
                         </div>
                     </>
-                
                 )}
-            
             </div>
         </>
     );

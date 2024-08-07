@@ -1,18 +1,18 @@
 import React from "react";
 
-const FooterSocialButton = (props) => {
+const FooterSocialButton = ({ mode, site, btn }) => {
     return (
         <>
             <a
                 className={`btn btn-${
-                    props.mode === "light" ? "" : "dark"
+                    mode === "light" ? "" : "dark"
                 } btn-floating btn-shadow-white text-white m-1 ${
-                    props.mode === "light" ? "footer-social-btn-light" : ""
+                    mode === "light" ? "footer-social-btn-light" : ""
                 }`}
-                href={`https://www.${props.site}.com/`}
+                href={`https://www.${site}.com/`}
                 role="button"
             >
-                <i className={`bi bi-${props.btn}`}></i>
+                <i className={`bi bi-${btn}`}></i>
             </a>
         </>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 import ProfileLoggedIn from "../Components/Profile/ProfileLoggedIn";
 
-const Profile = (props) => {
+const Profile = ({ mode }) => {
     const userName = "Ayush Sharma";
     const userContact = "9876543210";
     const userEmail = "dictator@calendara.com";
@@ -16,14 +16,14 @@ const Profile = (props) => {
                 <div className="">
                     <h1
                         className={`quicksand-medium-500 text-${
-                            props.mode === "dark" ? "light" : "dark"
+                            mode === "dark" ? "light" : "dark"
                         }`}
                     >
                         Your Profile
                     </h1>
 
                     <ProfileLoggedIn
-                        mode={props.mode}
+                        mode={mode}
                         userBadge={userBadge}
                         userContact={userContact}
                         userEmail={userEmail}

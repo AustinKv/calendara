@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Reminders = (props) => {
+const Reminders = ({ mode }) => {
     const [events7days, setEvents7days] = useState([]);
     const [events3days, setEvents3days] = useState([]);
     const [events1day, setEvents1day] = useState([]);
@@ -57,7 +57,7 @@ const Reminders = (props) => {
         <>
             <div
                 className={`container my-5 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <h1>Reminders</h1>

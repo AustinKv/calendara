@@ -154,7 +154,7 @@ const CustomToolbar = (toolbar) => {
     );
 };
 
-const AddEvent = (props) => {
+const AddEvent = ({ mode }) => {
     const [events, setEvents] = useState([]);
 
     const handleAddEvent = (newEvent) => {
@@ -170,7 +170,7 @@ const AddEvent = (props) => {
             return {
                 className: "current-date",
                 style: {
-                    backgroundColor: props.mode === "light" ? "" : "gray",
+                    backgroundColor: mode === "light" ? "" : "gray",
                 },
             };
         }
@@ -183,10 +183,7 @@ const AddEvent = (props) => {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-md-3">
-                        <EventForm
-                            onAddEvent={handleAddEvent}
-                            mode={props.mode}
-                        />
+                        <EventForm onAddEvent={handleAddEvent} mode={mode} />
                     </div>
                     <div className="col-md-9">
                         <Calendar
@@ -198,18 +195,12 @@ const AddEvent = (props) => {
                             style={{
                                 height: "35rem",
                                 backgroundColor:
-                                    props.mode === "light" ? "" : "#36393e",
-                                color:
-                                    props.mode === "light"
-                                        ? "black"
-                                        : "#f5f5f5",
+                                    mode === "light" ? "" : "#36393e",
+                                color: mode === "light" ? "black" : "#f5f5f5",
                             }}
                             components={{
                                 toolbar: (toolbar) => (
-                                    <CustomToolbar
-                                        {...toolbar}
-                                        mode={props.mode}
-                                    />
+                                    <CustomToolbar {...toolbar} mode={mode} />
                                 ),
                             }}
                         />

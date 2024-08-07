@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const NavbarLoggedOut = (props) => {
+const NavbarLoggedOut = ({ mode, toggleMode }) => {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
 
     useEffect(() => {
@@ -21,12 +21,11 @@ const NavbarLoggedOut = (props) => {
         <>
             <nav
                 className={`navbar navbar-expand-lg sticky-top border-bottom border-${
-                    props.mode === "light" ? "" : "secondary"
+                    mode === "light" ? "" : "secondary"
                 } shadow`}
                 style={{
                     width: "100%",
-                    backgroundColor:
-                        props.mode === "light" ? "#fff" : "#36393e",
+                    backgroundColor: mode === "light" ? "#fff" : "#36393e",
                 }}
             >
                 <div className="container-fluid">
@@ -34,7 +33,7 @@ const NavbarLoggedOut = (props) => {
                         <div className="navbar-brand w-25">
                             <Link className="navbar-brand p-0" to="/">
                                 <img
-                                    src={`../Images/Logo/calendara_${props.mode}.png`}
+                                    src={`../Images/Logo/calendara_${mode}.png`}
                                     className="img-fluid"
                                     style={{ maxWidth: "100%" }}
                                     alt=""
@@ -55,8 +54,7 @@ const NavbarLoggedOut = (props) => {
                             aria-label="Toggle navigation"
                             onClick={() => setShowOffcanvas(!showOffcanvas)}
                             style={{
-                                color:
-                                    props.mode === "light" ? "gray" : "white",
+                                color: mode === "light" ? "gray" : "white",
                                 border: "none",
                             }}
                         >
@@ -64,13 +62,10 @@ const NavbarLoggedOut = (props) => {
                                 className="navbar-toggler-icon"
                                 style={{
                                     filter:
-                                        props.mode === "light"
+                                        mode === "light"
                                             ? "invert(0)"
                                             : "invert(1)",
-                                    color:
-                                        props.mode === "light"
-                                            ? "gray"
-                                            : "white",
+                                    color: mode === "light" ? "gray" : "white",
                                 }}
                             ></span>
                         </button>
@@ -83,9 +78,7 @@ const NavbarLoggedOut = (props) => {
                                 <Link
                                     to="/sign-in"
                                     className={`nav-item nav-link hover-navlink text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     } mx-2 hover-underline`}
                                 >
                                     Login
@@ -93,7 +86,7 @@ const NavbarLoggedOut = (props) => {
 
                                 <input
                                     className="form-check-input invisible"
-                                    onClick={props.toggleMode}
+                                    onClick={toggleMode}
                                     type="checkbox"
                                     id="flexSwitchCheckDefault"
                                 />
@@ -103,13 +96,13 @@ const NavbarLoggedOut = (props) => {
                                 >
                                     <input
                                         type="checkbox"
-                                        onClick={props.toggleMode}
+                                        onClick={toggleMode}
                                         style={{ display: "none" }}
                                         id="toggle-mode"
                                         name="toggle-mode-checkbox"
                                     />
                                     <div className="container d-flex align-items-center">
-                                        {props.mode === "light" ? (
+                                        {mode === "light" ? (
                                             <i
                                                 className="bi bi-sun icon-shadow-yellow"
                                                 style={{ color: "black" }}
@@ -138,13 +131,12 @@ const NavbarLoggedOut = (props) => {
                 <div
                     className="offcanvas-header"
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "#fff" : "#36393e",
+                        backgroundColor: mode === "light" ? "#fff" : "#36393e",
                     }}
                 >
                     <h5
                         className={`offcanvas-title text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                         id="offcanvasExampleLabel"
                     >
@@ -153,7 +145,7 @@ const NavbarLoggedOut = (props) => {
                     <button
                         type="button"
                         className={`btn-close btn-close-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                         onClick={() => setShowOffcanvas(false)}
                     ></button>
@@ -161,8 +153,7 @@ const NavbarLoggedOut = (props) => {
                 <div
                     className="offcanvas-body pt-5"
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "#fff" : "#36393e",
+                        backgroundColor: mode === "light" ? "#fff" : "#36393e",
                     }}
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -170,7 +161,7 @@ const NavbarLoggedOut = (props) => {
                             <div className="nav-item d-flex justify-content-center me-3">
                                 <input
                                     className="form-check-input invisible"
-                                    onClick={props.toggleMode}
+                                    onClick={toggleMode}
                                     type="checkbox"
                                     id="flexSwitchCheckDefault"
                                 />
@@ -180,13 +171,13 @@ const NavbarLoggedOut = (props) => {
                                 >
                                     <input
                                         type="checkbox"
-                                        onClick={props.toggleMode}
+                                        onClick={toggleMode}
                                         style={{ display: "none" }}
                                         id="toggle-mode"
                                         name="toggle-mode-checkbox"
                                     />
                                     <div className="container d-flex align-items-center">
-                                        {props.mode === "light" ? (
+                                        {mode === "light" ? (
                                             <i
                                                 className="bi bi-sun icon-shadow-yellow"
                                                 style={{ color: "black" }}
@@ -204,7 +195,7 @@ const NavbarLoggedOut = (props) => {
                         <li className="nav-item">
                             <Link
                                 className={`nav-link hover-underline text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{ fontSize: "1.10rem" }}
                                 to="/home"
@@ -215,7 +206,7 @@ const NavbarLoggedOut = (props) => {
                         <li className="nav-item">
                             <Link
                                 className={`nav-link hover-underline text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{ fontSize: "1.10rem" }}
                                 to="/sign-in"

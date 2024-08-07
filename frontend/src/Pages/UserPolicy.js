@@ -1,10 +1,10 @@
 import React from "react";
 
-const UserPolicy = (props) => {
+const UserPolicy = ({ mode }) => {
     return (
         <div
             className={`container my-5 text-${
-                props.mode === "light" ? "black" : "white"
+                mode === "light" ? "black" : "white"
             }`}
         >
             <h1>User Policy for Calendara</h1>
@@ -73,7 +73,7 @@ const UserPolicy = (props) => {
                         textDecoration: "none",
                     }}
                     className={`text-${
-                        props.mode === "light" ? "primary" : "danger"
+                        mode === "light" ? "primary" : "danger"
                     }`}
                 >
                     contact.calendara@gmail.com

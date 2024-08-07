@@ -1,11 +1,11 @@
 import React from "react";
 
-const AboutSite = (props) => {
+const AboutSite = ({ mode }) => {
     return (
         <>
             <div
                 className={`container my-5 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <h3 className="my-3">Resources we have used:</h3>

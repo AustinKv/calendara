@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import HomeAdImage from "../HomeCommon/HomeAdImage";
 
-const HomeAd = (props) => {
+const HomeAd = ({ mode }) => {
     const [refLeft, inViewLeft] = useInView({
         threshold: 0.25,
         triggerOnce: true,
@@ -26,7 +26,7 @@ const HomeAd = (props) => {
                             inViewLeft ? "animate-left" : ""
                         }`}
                     >
-                        <HomeAdImage mode={props.mode} />
+                        <HomeAdImage mode={mode} />
                     </div>
                 </div>
                 <div className="col-lg-6 col-md-12 d-flex justify-content-center align-items-center">
@@ -38,7 +38,7 @@ const HomeAd = (props) => {
                     >
                         <p
                             className={`my-0 text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                             style={{ fontSize: "1.75rem" }}
                         >
@@ -46,7 +46,7 @@ const HomeAd = (props) => {
                         </p>
                         <p
                             className={`my-0 text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                             style={{ fontSize: "2.5rem" }}
                         >
@@ -54,7 +54,7 @@ const HomeAd = (props) => {
                         </p>
                         <p
                             className={`text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                             style={{ fontSize: "1.25rem" }}
                         >
@@ -65,9 +65,7 @@ const HomeAd = (props) => {
                             <Link
                                 to="/faq"
                                 className={`btn btn-${
-                                    props.mode === "light"
-                                        ? "primary"
-                                        : "danger"
+                                    mode === "light" ? "primary" : "danger"
                                 } btn-lg`}
                                 style={{
                                     borderRadius: "1.5rem",

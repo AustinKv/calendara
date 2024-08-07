@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 
 import FooterSocialButton from "./FooterSocialButton";
 
-const Footer = (props) => {
+const Footer = ({ mode }) => {
     return (
         <>
             <footer
                 className="text-center text-white w-100 h-auto"
                 style={{
                     minWidth: "100%",
-                    backgroundColor:
-                        props.mode === "light" ? "#1d2349" : "#212529",
+                    backgroundColor: mode === "light" ? "#1d2349" : "#212529",
                 }}
             >
                 <div className="container p-4">
@@ -19,37 +18,37 @@ const Footer = (props) => {
                         <FooterSocialButton
                             site={"facebook"}
                             btn={"facebook"}
-                            mode={props.mode}
+                            mode={mode}
                         />
 
                         <FooterSocialButton
                             site={"whatsapp"}
                             btn={"whatsapp"}
-                            mode={props.mode}
+                            mode={mode}
                         />
 
                         <FooterSocialButton
                             site={"instagram"}
                             btn={"instagram"}
-                            mode={props.mode}
+                            mode={mode}
                         />
 
                         <FooterSocialButton
                             site={"twitter"}
                             btn={"twitter-x"}
-                            mode={props.mode}
+                            mode={mode}
                         />
 
                         <FooterSocialButton
                             site={"linkedin"}
                             btn={"linkedin"}
-                            mode={props.mode}
+                            mode={mode}
                         />
 
                         <FooterSocialButton
                             site={"discord"}
                             btn={"discord"}
-                            mode={props.mode}
+                            mode={mode}
                         />
                     </section>
 
@@ -158,7 +157,7 @@ const Footer = (props) => {
                     className="text-center w-auto p-3"
                     style={{
                         backgroundColor:
-                            props.mode === "light" ? "#0e1225" : "#1a1a1a",
+                            mode === "light" ? "#0e1225" : "#1a1a1a",
                     }}
                 >
                     © 2024 Copyright: calendara

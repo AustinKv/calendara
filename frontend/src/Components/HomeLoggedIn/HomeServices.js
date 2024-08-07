@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import HomeServicesCard from "./HomeServicesCard";
 
-const HomeServices = (props) => {
+const HomeServices = ({ mode }) => {
     const servicesTextsLeft = {
         service1: {
             text: "calendara, with its user-friendly interface, is crafted for simplicity and ease of use. The site's well-organized structure, marked by a clean design, facilitates a seamless experience for users. Our calendar is designed to be user friendly and intuitive.",
@@ -41,7 +41,7 @@ const HomeServices = (props) => {
                     <div className="col-12 text-center">
                         <p
                             className={`text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                             style={{ fontSize: "2.5rem" }}
                         >
@@ -63,7 +63,7 @@ const HomeServices = (props) => {
                                     className="d-flex justify-content-center"
                                 >
                                     <HomeServicesCard
-                                        mode={props.mode}
+                                        mode={mode}
                                         service={service}
                                     />
                                 </div>
@@ -83,7 +83,7 @@ const HomeServices = (props) => {
                                     className="d-flex justify-content-center"
                                 >
                                     <HomeServicesCard
-                                        mode={props.mode}
+                                        mode={mode}
                                         service={service}
                                     />
                                 </div>

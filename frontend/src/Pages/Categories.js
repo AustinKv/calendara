@@ -3,7 +3,7 @@ import axios from "axios";
 
 import categoryColors from "../Components/Categories/categoryColors";
 
-const Categories = (props) => {
+const Categories = ({ mode }) => {
     const [selectedColor, setSelectedColor] = useState(
         localStorage.getItem("selectedColor") || "#ffeb3b"
     );
@@ -50,7 +50,7 @@ const Categories = (props) => {
         <>
             <div
                 className={`container my-5 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <div className="row">
@@ -76,7 +76,7 @@ const Categories = (props) => {
                                                                     backgroundColor:
                                                                         colorValue,
                                                                     color:
-                                                                        props.mode ===
+                                                                        mode ===
                                                                         "light"
                                                                             ? "black"
                                                                             : "white",

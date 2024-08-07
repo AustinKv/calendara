@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const OverdueEvents = (props) => {
+const OverdueEvents = ({ mode }) => {
     //Hooks
     const navigate = useNavigate();
 
@@ -70,7 +70,7 @@ const OverdueEvents = (props) => {
         setModalShow(false);
     };
 
-    const totalEventsColor = props.mode === "light" ? "#e6e6e6" : "#474b52";
+    const totalEventsColor = mode === "light" ? "#e6e6e6" : "#474b52";
 
     const COLORS = ["#dc3545", totalEventsColor];
 
@@ -96,7 +96,7 @@ const OverdueEvents = (props) => {
                 <div className="col-12 d-flex justify-content-center mt-3">
                     <p
                         className={`p-0 dashboard-chart-heading text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
                         Unresolved - Overdue
@@ -136,7 +136,7 @@ const OverdueEvents = (props) => {
                         <div className="ms-2">
                             <p
                                 className={`m-0 text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 : Overdue Events
@@ -154,7 +154,7 @@ const OverdueEvents = (props) => {
                         <div className="ms-2">
                             <p
                                 className={`m-0 text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                             >
                                 : Total Events
@@ -169,18 +169,17 @@ const OverdueEvents = (props) => {
                 className="mt-5"
             >
                 <Modal.Header
-                    closeVariant={props.mode === "dark" ? "white" : "black"}
+                    closeVariant={mode === "dark" ? "white" : "black"}
                     closeButton
-                    className={props.mode === "light" ? "" : "border-secondary"}
+                    className={mode === "light" ? "" : "border-secondary"}
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
                 >
                     <Modal.Title
                         style={{
                             WebkitTextFillColor:
-                                props.mode === "light" ? "" : "white",
+                                mode === "light" ? "" : "white",
                         }}
                     >
                         Overdue Events
@@ -188,8 +187,7 @@ const OverdueEvents = (props) => {
                 </Modal.Header>
                 <Modal.Body
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                         height: "25rem",
                         overflowY: "auto",
                     }}
@@ -199,7 +197,7 @@ const OverdueEvents = (props) => {
                             <div
                                 key={event._id}
                                 className={`my-3 text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 onClick={() => handleEventClick(event._id)}
                             >
@@ -239,16 +237,13 @@ const OverdueEvents = (props) => {
                 </Modal.Body>
                 <Modal.Footer
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
-                    className={`border-${
-                        props.mode === "light" ? "" : "secondary"
-                    }`}
+                    className={`border-${mode === "light" ? "" : "secondary"}`}
                 >
                     <p
                         className={`text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
                         calendara

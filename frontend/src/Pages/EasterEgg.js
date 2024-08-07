@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import eeImage from "../Components/EE/eeImage.jpeg";
 import eeSound from "../Components/EE/eeSound.m4a";
 
-const EasterEgg = (props) => {
+const EasterEgg = ({ mode }) => {
     const audioRef = useRef(null);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const EasterEgg = (props) => {
         <>
             <h1
                 className={`my-5 d-flex justify-content-center text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 What is bro doing here? 🗣️⁉️
@@ -29,7 +29,7 @@ const EasterEgg = (props) => {
             </div>
             <p
                 className={`my-5 d-flex justify-content-center text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <audio ref={audioRef} controls autoPlay>

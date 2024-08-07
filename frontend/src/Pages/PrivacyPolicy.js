@@ -1,10 +1,10 @@
 import React from "react";
 
-const PrivacyPolicy = (props) => {
+const PrivacyPolicy = ({ mode }) => {
     return (
         <div
             className={`container my-5 text-${
-                props.mode === "light" ? " black" : "white"
+                mode === "light" ? " black" : "white"
             }`}
         >
             <h1>Privacy Policy for calendara</h1>
@@ -107,7 +107,7 @@ const PrivacyPolicy = (props) => {
                     href="mailto:user@example.com"
                     style={{ textDecoration: "none" }}
                     className={`text-${
-                        props.mode === "light" ? "primary" : "danger"
+                        mode === "light" ? "primary" : "danger"
                     }`}
                 >
                     contact.calendara@gmail.com

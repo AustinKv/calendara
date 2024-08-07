@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import HomeCalendarImage from "../HomeCommon/HomeCalendarImage";
 
-const HomeWelcome = (props) => {
+const HomeWelcome = ({ mode }) => {
     const [ref, inView] = useInView({
         threshold: 0,
         triggerOnce: true,
@@ -20,7 +20,7 @@ const HomeWelcome = (props) => {
                         <div className="col-md-6 col-12 d-flex align-items-center">
                             <p
                                 className={`home-main-p text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{
                                     textAlign: "center",
@@ -32,7 +32,7 @@ const HomeWelcome = (props) => {
                             </p>
                         </div>
                         <div className="col-md-6 col-12">
-                            <HomeCalendarImage mode={props.mode} />
+                            <HomeCalendarImage mode={mode} />
                         </div>
                     </div>
                 </div>

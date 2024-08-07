@@ -7,23 +7,22 @@ import HomeAd from "../Components/HomeLoggedOut/HomeAd";
 import HomeMain from "../Components/HomeLoggedOut/HomeMain";
 import HomeWelcome from "../Components/HomeLoggedOut/HomeWelcome";
 
-const HomeLoggedOut = (props) => {
-    console.log(props.mode);
+const HomeLoggedOut = ({ mode }) => {
     return (
         <>
             <div className="home-page">
                 <div className="container">
-                    <HomeMain mode={props.mode} />
+                    <HomeMain mode={mode} />
 
-                    <HomeWelcome mode={props.mode} />
+                    <HomeWelcome mode={mode} />
 
-                    <HomeAd mode={props.mode} />
+                    <HomeAd mode={mode} />
 
-                    <HomeFAQ mode={props.mode} />
+                    <HomeFAQ mode={mode} />
 
-                    <HomeServices mode={props.mode} />
+                    <HomeServices mode={mode} />
 
-                    <HomeConclusion mode={props.mode} />
+                    <HomeConclusion mode={mode} />
                 </div>
             </div>
         </>

@@ -6,21 +6,20 @@ import HomeAd from "../Components/HomeLoggedIn/HomeAd";
 import HomeMain from "../Components/HomeLoggedIn/HomeMain";
 import HomeWelcome from "../Components/HomeLoggedIn/HomeWelcome";
 
-const HomeLoggedIn = (props) => {
-    console.log(props.mode);
+const HomeLoggedIn = ({ mode }) => {
     return (
         <>
             <div className="home-page">
                 <div className="container">
-                    <HomeMain mode={props.mode} />
+                    <HomeMain mode={mode} />
 
-                    <HomeWelcome mode={props.mode} />
+                    <HomeWelcome mode={mode} />
 
-                    <HomeAd mode={props.mode} />
+                    <HomeAd mode={mode} />
 
-                    <HomeFAQ mode={props.mode} />
+                    <HomeFAQ mode={mode} />
 
-                    <HomeServices mode={props.mode} />
+                    <HomeServices mode={mode} />
                 </div>
             </div>
         </>

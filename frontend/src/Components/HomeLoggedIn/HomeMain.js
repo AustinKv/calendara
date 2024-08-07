@@ -1,6 +1,6 @@
 import "../HomeCommon/HomeAnimation.css";
 
-const HomeMain = (props) => {
+const HomeMain = ({ mode }) => {
     return (
         <>
             <div
@@ -13,15 +13,14 @@ const HomeMain = (props) => {
                             className="fw-bold text-center montserrat-regular-400 mb-5 home-main-headline"
                             style={{
                                 fontSize: "4.5rem",
-                                color:
-                                    props.mode === "light" ? "black" : "white",
+                                color: mode === "light" ? "black" : "white",
                             }}
                         >
                             Events made easy!
                         </p>
                         <p
                             className={`text-center montserrat-regular-400 text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                             style={{ fontSize: "1.75rem" }}
                         >

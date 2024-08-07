@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const CompletedEvents = (props) => {
+const CompletedEvents = ({ mode }) => {
     //Hooks
     const navigate = useNavigate();
 
@@ -72,7 +72,7 @@ const CompletedEvents = (props) => {
         { name: "Total Events", value: totalEventsCount },
     ];
 
-    const totalEventsColor = props.mode === "light" ? "#e6e6e6" : "#474b52";
+    const totalEventsColor = mode === "light" ? "#e6e6e6" : "#474b52";
 
     const COLORS = ["#28a745", totalEventsColor];
 
@@ -97,7 +97,7 @@ const CompletedEvents = (props) => {
                     <div className="col-12 d-flex justify-content-center mt-3">
                         <p
                             className={`p-0 dashboard-chart-heading text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                         >
                             Resolved - Completed
@@ -137,9 +137,7 @@ const CompletedEvents = (props) => {
                             <div className="ms-2">
                                 <p
                                     className={`m-0 text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     : Completed Events
@@ -157,9 +155,7 @@ const CompletedEvents = (props) => {
                             <div className="ms-2">
                                 <p
                                     className={`m-0 text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     : Total Events
@@ -176,18 +172,17 @@ const CompletedEvents = (props) => {
                 className="mt-5"
             >
                 <Modal.Header
-                    closeVariant={props.mode === "dark" ? "white" : "black"}
+                    closeVariant={mode === "dark" ? "white" : "black"}
                     closeButton
-                    className={props.mode === "light" ? "" : "border-secondary"}
+                    className={mode === "light" ? "" : "border-secondary"}
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
                 >
                     <Modal.Title
                         style={{
                             WebkitTextFillColor:
-                                props.mode === "light" ? "" : "white",
+                                mode === "light" ? "" : "white",
                         }}
                     >
                         Completed Events
@@ -195,8 +190,7 @@ const CompletedEvents = (props) => {
                 </Modal.Header>
                 <Modal.Body
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                         height: "25rem",
                         overflowY: "auto",
                     }}
@@ -206,7 +200,7 @@ const CompletedEvents = (props) => {
                             <div
                                 key={event._id}
                                 className={`my-3 text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 onClick={() => handleEventClick(event._id)}
                             >
@@ -246,16 +240,13 @@ const CompletedEvents = (props) => {
                 </Modal.Body>
                 <Modal.Footer
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
-                    className={`border-${
-                        props.mode === "light" ? "" : "secondary"
-                    }`}
+                    className={`border-${mode === "light" ? "" : "secondary"}`}
                 >
                     <p
                         className={`text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
                         calendara

@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import HomeAccordian from "./HomeAccordian";
 
-const HomeFAQ = (props) => {
+const HomeFAQ = ({ mode }) => {
     const [ref, inView] = useInView({
         threshold: 0,
         triggerOnce: true,
@@ -23,7 +23,7 @@ const HomeFAQ = (props) => {
                 <div className="col-lg-4 col-md-6 text-center">
                     <div
                         className={`text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
                         <p className="" style={{ fontSize: "2.5rem" }}>
@@ -37,7 +37,7 @@ const HomeFAQ = (props) => {
                     </div>
                 </div>
                 <div className="col-lg-6 col-md-6">
-                    <HomeAccordian mode={props.mode} />
+                    <HomeAccordian mode={mode} />
                 </div>
             </div>
         </div>

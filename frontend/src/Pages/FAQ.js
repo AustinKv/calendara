@@ -1,6 +1,6 @@
 import React from "react";
 
-const FAQ = (props) => {
+const FAQ = ({ mode }) => {
     const faqData = [
         {
             question: "What is the purpose of calendara?",
@@ -42,9 +42,7 @@ const FAQ = (props) => {
 
     return (
         <div className="container my-5">
-            <h1
-                className={`text-${props.mode === "light" ? "black" : "white"}`}
-            >
+            <h1 className={`text-${mode === "light" ? "black" : "white"}`}>
                 FAQs
             </h1>
             <div
@@ -56,17 +54,13 @@ const FAQ = (props) => {
                         <h2 className="accordion-header">
                             <button
                                 className={`accordion-button ${
-                                    props.mode === "light"
-                                        ? ""
-                                        : "dark-dropdown"
+                                    mode === "light" ? "" : "dark-dropdown"
                                 } text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 } collapsed`}
                                 style={{
                                     backgroundColor:
-                                        props.mode === "light"
-                                            ? "white"
-                                            : "#36393e",
+                                        mode === "light" ? "white" : "#36393e",
                                 }}
                                 type="button"
                                 data-bs-toggle="collapse"
@@ -86,16 +80,12 @@ const FAQ = (props) => {
                                 className="accordion-body"
                                 style={{
                                     backgroundColor:
-                                        props.mode === "light"
-                                            ? "white"
-                                            : "#36393e",
+                                        mode === "light" ? "white" : "#36393e",
                                 }}
                             >
                                 <p
                                     className={`text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     {faq.answer}

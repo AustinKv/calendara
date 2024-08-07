@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const CategoriesMainContent = (props) => {
+const CategoriesMainContent = ({ mode }) => {
     const selectedColor = localStorage.getItem("selectedColor") || "#ffeb3b";
     const email = localStorage.getItem("email");
 
@@ -26,14 +26,12 @@ const CategoriesMainContent = (props) => {
         }
         fetchEvents();
     }, [selectedColor, status, email]);
-    
-    
 
     return (
         <>
             <div
                 className={`container mb-5 ms-3 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <h1>Events</h1>

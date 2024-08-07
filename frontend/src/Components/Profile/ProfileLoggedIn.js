@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Login/firebase";
 
-const ProfileLoggedIn = (props) => {
-
+const ProfileLoggedIn = ({ mode, defaultProfileImg }) => {
     //Hooks
     const navigate = useNavigate();
 
@@ -15,7 +14,6 @@ const ProfileLoggedIn = (props) => {
     // const [eventTitles1Day, setEventTitles1Day] = useState([]);
     const resolvedEventsCount = localStorage.getItem("resolvedEventsCount");
     const unresolvedEventsCount = localStorage.getItem("unresolvedEventsCount");
-
 
     const handleSignOut = async () => {
         try {
@@ -47,7 +45,7 @@ const ProfileLoggedIn = (props) => {
         navigate("/");
     };
 
-    const defaultBackgroundImage = `/Images/Logo/calendara_${props.mode}.png`;
+    const defaultBackgroundImage = `/Images/Logo/calendara_${mode}.png`;
 
     return (
         <div className="my-5">
@@ -77,7 +75,7 @@ const ProfileLoggedIn = (props) => {
                                             src={
                                                 localStorage.getItem(
                                                     "userProfileImage"
-                                                ) || props.defaultProfileImg
+                                                ) || defaultProfileImg
                                             }
                                             className="img-fluid user-pfp-img"
                                             alt="user profile pic"
@@ -100,7 +98,7 @@ const ProfileLoggedIn = (props) => {
                         <div className="">
                             <div
                                 className={`text-${
-                                    props.mode === "dark" ? "light" : "dark"
+                                    mode === "dark" ? "light" : "dark"
                                 }`}
                             >
                                 <p
@@ -140,7 +138,7 @@ const ProfileLoggedIn = (props) => {
                             <Link
                                 to="/profile/upload-events"
                                 className={`btn btn-lg mt-3 profile-btn btn-${
-                                    props.mode === "light" ? "primary" : "light"
+                                    mode === "light" ? "primary" : "light"
                                 }`}
                             >
                                 Upload Data
@@ -148,7 +146,7 @@ const ProfileLoggedIn = (props) => {
                             <Link
                                 to="/profile/account-settings"
                                 className={`btn btn-lg profile-btn btn-${
-                                    props.mode === "dark" ? "light" : "primary"
+                                    mode === "dark" ? "light" : "primary"
                                 }
                                 `}
                             >
@@ -157,7 +155,7 @@ const ProfileLoggedIn = (props) => {
                             <Link
                                 to="/profile/more-settings"
                                 className={`btn btn-lg profile-btn btn-${
-                                    props.mode === "dark" ? "light" : "primary"
+                                    mode === "dark" ? "light" : "primary"
                                 }
                                 `}
                             >
@@ -176,17 +174,13 @@ const ProfileLoggedIn = (props) => {
                             className="px-3 py-2 mx-0 rounded profile-analysis w-75"
                             style={{
                                 backgroundColor:
-                                    props.mode === "light"
-                                        ? "#b3daff"
-                                        : "#5f646d",
+                                    mode === "light" ? "#b3daff" : "#5f646d",
                             }}
                         >
                             <div className="col-12 mt-3">
                                 <p
                                     className={`profile-dashboard text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                     style={{ fontSize: "1.5rem" }}
                                 >
@@ -196,9 +190,7 @@ const ProfileLoggedIn = (props) => {
                             <div className="col-12">
                                 <p
                                     className={`profile-dashboard text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                     style={{ fontSize: "1.5rem" }}
                                 >
@@ -208,9 +200,7 @@ const ProfileLoggedIn = (props) => {
                             <div className="col-12">
                                 <p
                                     className={`profile-dashboard text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                     style={{ fontSize: "1.5rem" }}
                                 >
@@ -222,9 +212,7 @@ const ProfileLoggedIn = (props) => {
                                 <Link
                                     to="/dashboard"
                                     className={`profile-dashboard text-${
-                                        props.mode === "light"
-                                            ? "success"
-                                            : "warning"
+                                        mode === "light" ? "success" : "warning"
                                     }`}
                                     style={{
                                         fontSize: "1.5rem",

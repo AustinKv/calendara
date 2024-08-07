@@ -5,7 +5,7 @@ import { Modal, Dropdown } from "react-bootstrap";
 import axios from "axios";
 import { auth } from "../Login/firebase";
 
-const NavbarLoggedIn = (props) => {
+const NavbarLoggedIn = ({ mode, toggleMode }) => {
     //Hooks
     const navigate = useNavigate();
 
@@ -184,12 +184,11 @@ const NavbarLoggedIn = (props) => {
         <>
             <nav
                 className={`navbar navbar-expand-lg sticky-top border-bottom border-${
-                    props.mode === "light" ? "" : "secondary"
+                    mode === "light" ? "" : "secondary"
                 } shadow`}
                 style={{
                     width: "100%",
-                    backgroundColor:
-                        props.mode === "light" ? "#fff" : "#36393e",
+                    backgroundColor: mode === "light" ? "#fff" : "#36393e",
                 }}
             >
                 <div className="container-fluid">
@@ -197,7 +196,7 @@ const NavbarLoggedIn = (props) => {
                         <div className="navbar-brand d-flex align-items-center p-0 m-0 justify-content-center w-25">
                             <Link className="p-0" to="/home">
                                 <img
-                                    src={`/Images/Logo/calendara_${props.mode}.png`}
+                                    src={`/Images/Logo/calendara_${mode}.png`}
                                     className="img-fluid"
                                     style={{
                                         maxWidth: "100%",
@@ -221,8 +220,7 @@ const NavbarLoggedIn = (props) => {
                             aria-label="Toggle navigation"
                             onClick={() => setShowOffcanvas(!showOffcanvas)}
                             style={{
-                                color:
-                                    props.mode === "light" ? "gray" : "white",
+                                color: mode === "light" ? "gray" : "white",
                                 border: "none",
                             }}
                         >
@@ -230,13 +228,10 @@ const NavbarLoggedIn = (props) => {
                                 className="navbar-toggler-icon"
                                 style={{
                                     filter:
-                                        props.mode === "light"
+                                        mode === "light"
                                             ? "invert(0)"
                                             : "invert(1)",
-                                    color:
-                                        props.mode === "light"
-                                            ? "gray"
-                                            : "white",
+                                    color: mode === "light" ? "gray" : "white",
                                 }}
                             ></span>
                         </button>
@@ -256,9 +251,7 @@ const NavbarLoggedIn = (props) => {
                                 <li className="nav-item mx-2">
                                     <Link
                                         className={`nav-link hover-underline text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{ fontSize: "1.10rem" }}
                                         to="/home"
@@ -269,9 +262,7 @@ const NavbarLoggedIn = (props) => {
                                 <li className="nav-item mx-2">
                                     <Link
                                         className={`nav-link hover-underline text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{ fontSize: "1.10rem" }}
                                         to="/dashboard"
@@ -282,9 +273,7 @@ const NavbarLoggedIn = (props) => {
                                 <li className="nav-item mx-2">
                                     <Link
                                         className={`nav-link hover-underline text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{ fontSize: "1.10rem" }}
                                         to="/categories"
@@ -305,7 +294,7 @@ const NavbarLoggedIn = (props) => {
                                         <Dropdown.Toggle
                                             id="profile-dropdown"
                                             className={`nav-link hover-navlink text-${
-                                                props.mode === "light"
+                                                mode === "light"
                                                     ? "black"
                                                     : "white"
                                             } mx-2`}
@@ -326,7 +315,7 @@ const NavbarLoggedIn = (props) => {
                                         <Dropdown.Menu
                                             style={{
                                                 backgroundColor:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? ""
                                                         : "#36393e",
                                             }}
@@ -338,10 +327,8 @@ const NavbarLoggedIn = (props) => {
                                                     );
                                                     navigate("/add-event");
                                                 }}
-                                                className={`dropdown-hover-${
-                                                    props.mode
-                                                } text-${
-                                                    props.mode === "light"
+                                                className={`dropdown-hover-${mode} text-${
+                                                    mode === "light"
                                                         ? "black"
                                                         : "white"
                                                 }`}
@@ -358,10 +345,8 @@ const NavbarLoggedIn = (props) => {
                                                     );
                                                     navigate("/events2");
                                                 }}
-                                                className={`dropdown-hover-${
-                                                    props.mode
-                                                } text-${
-                                                    props.mode === "light"
+                                                className={`dropdown-hover-${mode} text-${
+                                                    mode === "light"
                                                         ? "black"
                                                         : "white"
                                                 }`}
@@ -381,9 +366,7 @@ const NavbarLoggedIn = (props) => {
                                 >
                                     <Link
                                         className={`nav-link hover-navlink text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         } mx-2 hover-underline`}
                                         onClick={handleShow}
                                     >
@@ -398,19 +381,19 @@ const NavbarLoggedIn = (props) => {
                                     >
                                         <Modal.Header
                                             closeVariant={
-                                                props.mode === "dark"
+                                                mode === "dark"
                                                     ? "white"
                                                     : "black"
                                             }
                                             closeButton
                                             className={
-                                                props.mode === "light"
+                                                mode === "light"
                                                     ? ""
                                                     : "border-secondary"
                                             }
                                             style={{
                                                 backgroundColor:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "#36393e",
                                             }}
@@ -421,13 +404,11 @@ const NavbarLoggedIn = (props) => {
                                                         className="input-group-text"
                                                         style={{
                                                             backgroundColor:
-                                                                props.mode ===
-                                                                "light"
+                                                                mode === "light"
                                                                     ? "white"
                                                                     : "#666B74",
                                                             WebkitTextFillColor:
-                                                                props.mode ===
-                                                                "light"
+                                                                mode === "light"
                                                                     ? ""
                                                                     : "white",
                                                         }}
@@ -445,13 +426,11 @@ const NavbarLoggedIn = (props) => {
                                                         aria-label="Search Event Title"
                                                         style={{
                                                             backgroundColor:
-                                                                props.mode ===
-                                                                "light"
+                                                                mode === "light"
                                                                     ? "white"
                                                                     : "#666B74",
                                                             WebkitTextFillColor:
-                                                                props.mode ===
-                                                                "light"
+                                                                mode === "light"
                                                                     ? ""
                                                                     : "#e6e6e6",
                                                         }}
@@ -463,7 +442,7 @@ const NavbarLoggedIn = (props) => {
                                         <Modal.Body
                                             style={{
                                                 backgroundColor:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "#36393e",
                                                 height: "25rem",
@@ -475,8 +454,7 @@ const NavbarLoggedIn = (props) => {
                                                     <div
                                                         key={event._id}
                                                         className={`mt-2 mb-5 text-${
-                                                            props.mode ===
-                                                            "light"
+                                                            mode === "light"
                                                                 ? "black"
                                                                 : "white"
                                                         }`}
@@ -535,7 +513,7 @@ const NavbarLoggedIn = (props) => {
                                             ) : (
                                                 <p
                                                     className={`text-${
-                                                        props.mode === "light"
+                                                        mode === "light"
                                                             ? "black"
                                                             : "light"
                                                     }`}
@@ -548,20 +526,20 @@ const NavbarLoggedIn = (props) => {
 
                                         <Modal.Footer
                                             className={
-                                                props.mode === "light"
+                                                mode === "light"
                                                     ? ""
                                                     : "border-secondary"
                                             }
                                             style={{
                                                 backgroundColor:
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "white"
                                                         : "#36393e",
                                             }}
                                         >
                                             <p
                                                 className={`text-${
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "black"
                                                         : "white"
                                                 }`}
@@ -581,15 +559,13 @@ const NavbarLoggedIn = (props) => {
                                 >
                                     <i
                                         className={`bi bi-bell text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{ fontSize: "1.5rem" }}
                                     ></i>
                                     <span
                                         className={`badge position-absolute text-bg-${
-                                            props.mode === "light"
+                                            mode === "light"
                                                 ? "danger"
                                                 : "warning"
                                         }`}
@@ -610,9 +586,7 @@ const NavbarLoggedIn = (props) => {
                                     <Dropdown.Toggle
                                         id="profile-dropdown"
                                         className={`nav-link hover-navlink text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         } mx-2`}
                                         style={{
                                             background: "transparent",
@@ -643,7 +617,7 @@ const NavbarLoggedIn = (props) => {
                                     <Dropdown.Menu
                                         style={{
                                             backgroundColor:
-                                                props.mode === "light"
+                                                mode === "light"
                                                     ? ""
                                                     : "#36393e",
                                         }}
@@ -654,10 +628,8 @@ const NavbarLoggedIn = (props) => {
                                                 setShowOffcanvas(false);
                                                 navigate("/profile");
                                             }}
-                                            className={`dropdown-hover-${
-                                                props.mode
-                                            } text-${
-                                                props.mode === "light"
+                                            className={`dropdown-hover-${mode} text-${
+                                                mode === "light"
                                                     ? "black"
                                                     : "white"
                                             }`}
@@ -675,10 +647,8 @@ const NavbarLoggedIn = (props) => {
                                                     "/profile/update-profile"
                                                 );
                                             }}
-                                            className={`dropdown-hover-${
-                                                props.mode
-                                            } text-${
-                                                props.mode === "light"
+                                            className={`dropdown-hover-${mode} text-${
+                                                mode === "light"
                                                     ? "black"
                                                     : "white"
                                             }`}
@@ -690,10 +660,8 @@ const NavbarLoggedIn = (props) => {
                                         </Dropdown.Item>
                                         <Dropdown.Item
                                             onClick={handleLogout}
-                                            className={`dropdown-hover-${
-                                                props.mode
-                                            } text-${
-                                                props.mode === "light"
+                                            className={`dropdown-hover-${mode} text-${
+                                                mode === "light"
                                                     ? "black"
                                                     : "white"
                                             }`}
@@ -709,7 +677,7 @@ const NavbarLoggedIn = (props) => {
                                 <div className="d-flex align-items-center">
                                     <input
                                         className="form-check-input invisible"
-                                        onClick={props.toggleMode}
+                                        onClick={toggleMode}
                                         type="checkbox"
                                         id="flexSwitchCheckDefault"
                                     />
@@ -719,13 +687,13 @@ const NavbarLoggedIn = (props) => {
                                     >
                                         <input
                                             type="checkbox"
-                                            onClick={props.toggleMode}
+                                            onClick={toggleMode}
                                             style={{ display: "none" }}
                                             id="toggle-mode"
                                             name="toggle-mode-checkbox"
                                         />
                                         <div className="container d-flex align-items-center">
-                                            {props.mode === "light" ? (
+                                            {mode === "light" ? (
                                                 <i
                                                     className="bi bi-sun icon-shadow-yellow"
                                                     style={{ color: "black" }}
@@ -756,13 +724,12 @@ const NavbarLoggedIn = (props) => {
                 <div
                     className="offcanvas-header"
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "#fff" : "#36393e",
+                        backgroundColor: mode === "light" ? "#fff" : "#36393e",
                     }}
                 >
                     <h5
                         className={`offcanvas-title text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                         id="offcanvasExampleLabel"
                     >
@@ -771,7 +738,7 @@ const NavbarLoggedIn = (props) => {
                     <button
                         type="button"
                         className={`btn-close btn-close-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                         onClick={() => setShowOffcanvas(false)}
                     ></button>
@@ -779,8 +746,7 @@ const NavbarLoggedIn = (props) => {
                 <div
                     className="offcanvas-body pt-3"
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "#fff" : "#36393e",
+                        backgroundColor: mode === "light" ? "#fff" : "#36393e",
                     }}
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -797,9 +763,7 @@ const NavbarLoggedIn = (props) => {
                                 <Dropdown.Toggle
                                     id="profile-dropdown"
                                     className={`nav-link hover-navlink text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     } mx-2`}
                                     style={{
                                         background: "transparent",
@@ -832,9 +796,7 @@ const NavbarLoggedIn = (props) => {
                                 <Dropdown.Menu
                                     style={{
                                         backgroundColor:
-                                            props.mode === "light"
-                                                ? ""
-                                                : "#36393e",
+                                            mode === "light" ? "" : "#36393e",
                                     }}
                                 >
                                     <Dropdown.Item
@@ -843,12 +805,8 @@ const NavbarLoggedIn = (props) => {
                                             setShowOffcanvas(false);
                                             navigate("/profile");
                                         }}
-                                        className={`dropdown-hover-${
-                                            props.mode
-                                        } text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                        className={`dropdown-hover-${mode} text-${
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{
                                             background: "transparent",
@@ -862,12 +820,8 @@ const NavbarLoggedIn = (props) => {
                                             setShowOffcanvas(false);
                                             navigate("/profile/update-profile");
                                         }}
-                                        className={`dropdown-hover-${
-                                            props.mode
-                                        } text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                        className={`dropdown-hover-${mode} text-${
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{
                                             background: "transparent",
@@ -877,12 +831,8 @@ const NavbarLoggedIn = (props) => {
                                     </Dropdown.Item>
                                     <Dropdown.Item
                                         onClick={handleLogout}
-                                        className={`dropdown-hover-${
-                                            props.mode
-                                        } text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                        className={`dropdown-hover-${mode} text-${
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{
                                             background: "transparent",
@@ -897,7 +847,7 @@ const NavbarLoggedIn = (props) => {
                             <div className="nav-item d-flex justify-content-center me-3">
                                 <input
                                     className="form-check-input invisible"
-                                    onClick={props.toggleMode}
+                                    onClick={toggleMode}
                                     type="checkbox"
                                     id="flexSwitchCheckDefault"
                                 />
@@ -907,13 +857,13 @@ const NavbarLoggedIn = (props) => {
                                 >
                                     <input
                                         type="checkbox"
-                                        onClick={props.toggleMode}
+                                        onClick={toggleMode}
                                         style={{ display: "none" }}
                                         id="toggle-mode"
                                         name="toggle-mode-checkbox"
                                     />
                                     <div className="container d-flex align-items-center">
-                                        {props.mode === "light" ? (
+                                        {mode === "light" ? (
                                             <i
                                                 className="bi bi-sun icon-shadow-yellow"
                                                 style={{ color: "black" }}
@@ -931,7 +881,7 @@ const NavbarLoggedIn = (props) => {
                         <li className="nav-item d-flex justify-content-center me-3 mt-3">
                             <input
                                 className="form-check-input invisible"
-                                onClick={props.toggleMode}
+                                onClick={toggleMode}
                                 type="checkbox"
                                 id="flexSwitchCheckDefault"
                             />
@@ -941,13 +891,13 @@ const NavbarLoggedIn = (props) => {
                             >
                                 <input
                                     type="checkbox"
-                                    onClick={props.toggleMode}
+                                    onClick={toggleMode}
                                     style={{ display: "none" }}
                                     id="toggle-mode"
                                     name="toggle-mode-checkbox"
                                 />
                                 <div className="container d-flex align-items-center">
-                                    {props.mode === "light" ? (
+                                    {mode === "light" ? (
                                         <i
                                             className="bi bi-sun icon-shadow-yellow"
                                             style={{ color: "black" }}
@@ -970,17 +920,13 @@ const NavbarLoggedIn = (props) => {
                             >
                                 <i
                                     className={`bi bi-bell text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                     style={{ fontSize: "1.5rem" }}
                                 ></i>
                                 <span
                                     className={`badge position-absolute text-bg-${
-                                        props.mode === "light"
-                                            ? "danger"
-                                            : "warning"
+                                        mode === "light" ? "danger" : "warning"
                                     }`}
                                 >
                                     {totalCount}
@@ -990,7 +936,7 @@ const NavbarLoggedIn = (props) => {
                         <li style={{ margin: "auto" }}>
                             <Link
                                 className={`nav-link hover-navlink text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 } mx-2 hover-underline`}
                                 style={{ fontSize: "1.10rem" }}
                                 onClick={handleShow}
@@ -1006,19 +952,17 @@ const NavbarLoggedIn = (props) => {
                             >
                                 <Modal.Header
                                     closeVariant={
-                                        props.mode === "dark"
-                                            ? "white"
-                                            : "black"
+                                        mode === "dark" ? "white" : "black"
                                     }
                                     closeButton
                                     className={
-                                        props.mode === "light"
+                                        mode === "light"
                                             ? ""
                                             : "border-secondary"
                                     }
                                     style={{
                                         backgroundColor:
-                                            props.mode === "light"
+                                            mode === "light"
                                                 ? "white"
                                                 : "#36393e",
                                     }}
@@ -1029,11 +973,11 @@ const NavbarLoggedIn = (props) => {
                                                 className="input-group-text"
                                                 style={{
                                                     backgroundColor:
-                                                        props.mode === "light"
+                                                        mode === "light"
                                                             ? "white"
                                                             : "#666B74",
                                                     WebkitTextFillColor:
-                                                        props.mode === "light"
+                                                        mode === "light"
                                                             ? ""
                                                             : "white",
                                                 }}
@@ -1049,11 +993,11 @@ const NavbarLoggedIn = (props) => {
                                                 aria-label="Search Event Title"
                                                 style={{
                                                     backgroundColor:
-                                                        props.mode === "light"
+                                                        mode === "light"
                                                             ? "white"
                                                             : "#666B74",
                                                     WebkitTextFillColor:
-                                                        props.mode === "light"
+                                                        mode === "light"
                                                             ? ""
                                                             : "#e6e6e6",
                                                 }}
@@ -1065,7 +1009,7 @@ const NavbarLoggedIn = (props) => {
                                 <Modal.Body
                                     style={{
                                         backgroundColor:
-                                            props.mode === "light"
+                                            mode === "light"
                                                 ? "white"
                                                 : "#36393e",
                                         height: "25rem",
@@ -1077,7 +1021,7 @@ const NavbarLoggedIn = (props) => {
                                             <div
                                                 key={event._id}
                                                 className={`mt-2    mb-5 text-${
-                                                    props.mode === "light"
+                                                    mode === "light"
                                                         ? "black"
                                                         : "white"
                                                 }`}
@@ -1127,7 +1071,7 @@ const NavbarLoggedIn = (props) => {
                                     ) : (
                                         <p
                                             className={`text-${
-                                                props.mode === "light"
+                                                mode === "light"
                                                     ? "black"
                                                     : "light"
                                             }`}
@@ -1140,22 +1084,20 @@ const NavbarLoggedIn = (props) => {
 
                                 <Modal.Footer
                                     className={
-                                        props.mode === "light"
+                                        mode === "light"
                                             ? ""
                                             : "border-secondary"
                                     }
                                     style={{
                                         backgroundColor:
-                                            props.mode === "light"
+                                            mode === "light"
                                                 ? "white"
                                                 : "#36393e",
                                     }}
                                 >
                                     <p
                                         className={`text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                     >
                                         calendara
@@ -1166,7 +1108,7 @@ const NavbarLoggedIn = (props) => {
                         <li className="nav-item d-flex justify-content-center">
                             <Link
                                 className={`nav-link hover-underline text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{ fontSize: "1.10rem" }}
                                 to="/home"
@@ -1177,7 +1119,7 @@ const NavbarLoggedIn = (props) => {
                         <li className="nav-item d-flex justify-content-center">
                             <Link
                                 className={`nav-link hover-underline text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{ fontSize: "1.10rem" }}
                                 to="/dashboard"
@@ -1188,7 +1130,7 @@ const NavbarLoggedIn = (props) => {
                         <li className="nav-item d-flex justify-content-center">
                             <Link
                                 className={`nav-link hover-underline text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 style={{ fontSize: "1.10rem" }}
                                 to="/categories"
@@ -1212,9 +1154,7 @@ const NavbarLoggedIn = (props) => {
                                 <Dropdown.Toggle
                                     id="profile-dropdown"
                                     className={`nav-link hover-navlink text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     } mx-2`}
                                     style={{
                                         background: "transparent",
@@ -1235,9 +1175,7 @@ const NavbarLoggedIn = (props) => {
                                 <Dropdown.Menu
                                     style={{
                                         backgroundColor:
-                                            props.mode === "light"
-                                                ? ""
-                                                : "#36393e",
+                                            mode === "light" ? "" : "#36393e",
                                     }}
                                 >
                                     <Dropdown.Item
@@ -1246,12 +1184,8 @@ const NavbarLoggedIn = (props) => {
                                             setShowOffcanvas(false);
                                             navigate("/add-event");
                                         }}
-                                        className={`dropdown-hover-${
-                                            props.mode
-                                        } text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                        className={`dropdown-hover-${mode} text-${
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{
                                             background: "transparent",
@@ -1265,12 +1199,8 @@ const NavbarLoggedIn = (props) => {
                                             setShowOffcanvas(false);
                                             navigate("/events2");
                                         }}
-                                        className={`dropdown-hover-${
-                                            props.mode
-                                        } text-${
-                                            props.mode === "light"
-                                                ? "black"
-                                                : "white"
+                                        className={`dropdown-hover-${mode} text-${
+                                            mode === "light" ? "black" : "white"
                                         }`}
                                         style={{
                                             background: "transparent",

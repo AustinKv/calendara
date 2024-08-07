@@ -1,11 +1,11 @@
 import React from "react";
 
-const Terms = (props) => {
+const Terms = ({ mode }) => {
     return (
         <>
             <div
                 className={`container my-5 text-${
-                    props.mode === "light" ? "black" : "white"
+                    mode === "light" ? "black" : "white"
                 }`}
             >
                 <h1>Terms & Conditions</h1>
@@ -88,7 +88,7 @@ const Terms = (props) => {
                             href="mailto:user@example.com"
                             style={{ textDecoration: "none" }}
                             className={`text-${
-                                props.mode === "light" ? "primary" : "danger"
+                                mode === "light" ? "primary" : "danger"
                             }`}
                         >
                             contact.calendara@gmail.com

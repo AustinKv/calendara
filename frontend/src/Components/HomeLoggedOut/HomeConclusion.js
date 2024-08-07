@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const HomeConclusion = (props) => {
+const HomeConclusion = ({ mode }) => {
     return (
         <>
             <div className="container my-5">
                 <div
                     className={`container d-flex justify-content-center text-${
-                        props.mode === "light" ? "black" : "white"
+                        mode === "light" ? "black" : "white"
                     }`}
                 >
                     <div className="container d-flex justify-content-center">
@@ -33,9 +33,7 @@ const HomeConclusion = (props) => {
                             <Link
                                 to="/sign-in"
                                 className={`btn btn-${
-                                    props.mode === "light"
-                                        ? "primary"
-                                        : "danger"
+                                    mode === "light" ? "primary" : "danger"
                                 } btn-lg`}
                                 style={{
                                     borderRadius: "1.5rem",

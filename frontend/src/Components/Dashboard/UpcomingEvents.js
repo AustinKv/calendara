@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const UpcomingEvents = (props) => {
+const UpcomingEvents = ({ mode }) => {
     //Hooks
     const navigate = useNavigate();
 
@@ -70,7 +70,7 @@ const UpcomingEvents = (props) => {
         { name: "Total Events", value: totalEventsCount },
     ];
 
-    const totalEventsColor = props.mode === "light" ? "#e6e6e6" : "#474b52";
+    const totalEventsColor = mode === "light" ? "#e6e6e6" : "#474b52";
 
     const COLORS = ["#ffc107", totalEventsColor];
 
@@ -95,7 +95,7 @@ const UpcomingEvents = (props) => {
                     <div className="col-12 d-flex justify-content-center mt-3">
                         <p
                             className={`p-0 dashboard-chart-heading text-${
-                                props.mode === "light" ? "black" : "white"
+                                mode === "light" ? "black" : "white"
                             }`}
                         >
                             To be Resolved - Upcoming
@@ -135,9 +135,7 @@ const UpcomingEvents = (props) => {
                             <div className="ms-2">
                                 <p
                                     className={`m-0 text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     : Upcoming events
@@ -155,9 +153,7 @@ const UpcomingEvents = (props) => {
                             <div className="ms-2">
                                 <p
                                     className={`m-0 text-${
-                                        props.mode === "light"
-                                            ? "black"
-                                            : "white"
+                                        mode === "light" ? "black" : "white"
                                     }`}
                                 >
                                     : Total Events
@@ -173,18 +169,17 @@ const UpcomingEvents = (props) => {
                 className="mt-5"
             >
                 <Modal.Header
-                    closeVariant={props.mode === "dark" ? "white" : "black"}
+                    closeVariant={mode === "dark" ? "white" : "black"}
                     closeButton
-                    className={props.mode === "light" ? "" : "border-secondary"}
+                    className={mode === "light" ? "" : "border-secondary"}
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
                 >
                     <Modal.Title
                         style={{
                             WebkitTextFillColor:
-                                props.mode === "light" ? "" : "white",
+                                mode === "light" ? "" : "white",
                         }}
                     >
                         Upcoming Events
@@ -192,8 +187,7 @@ const UpcomingEvents = (props) => {
                 </Modal.Header>
                 <Modal.Body
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                         height: "25rem",
                         overflowY: "auto",
                     }}
@@ -203,7 +197,7 @@ const UpcomingEvents = (props) => {
                             <div
                                 key={event._id}
                                 className={`my-3 text-${
-                                    props.mode === "light" ? "black" : "white"
+                                    mode === "light" ? "black" : "white"
                                 }`}
                                 onClick={() => handleEventClick(event._id)}
                             >
@@ -243,16 +237,13 @@ const UpcomingEvents = (props) => {
                 </Modal.Body>
                 <Modal.Footer
                     style={{
-                        backgroundColor:
-                            props.mode === "light" ? "white" : "#36393e",
+                        backgroundColor: mode === "light" ? "white" : "#36393e",
                     }}
-                    className={`border-${
-                        props.mode === "light" ? "" : "secondary"
-                    }`}
+                    className={`border-${mode === "light" ? "" : "secondary"}`}
                 >
                     <p
                         className={`text-${
-                            props.mode === "light" ? "black" : "white"
+                            mode === "light" ? "black" : "white"
                         }`}
                     >
                         calendara

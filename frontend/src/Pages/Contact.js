@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Contact = (props) => {
+const Contact = ({ mode }) => {
     const navigate = useNavigate();
 
     const [messageLength, setMessageLength] = useState(0); // State to store the message length
@@ -41,11 +41,7 @@ const Contact = (props) => {
     return (
         <>
             <div className="d-flex my-4 justify-content-center">
-                <h1
-                    className={`text-${
-                        props.mode === "dark" ? "light" : "dark"
-                    }`}
-                >
+                <h1 className={`text-${mode === "dark" ? "light" : "dark"}`}>
                     Contact Us
                 </h1>
             </div>
@@ -53,7 +49,7 @@ const Contact = (props) => {
                 <section className="mb-4">
                     <p
                         className={`text-${
-                            props.mode === "dark" ? "light" : "dark"
+                            mode === "dark" ? "light" : "dark"
                         } text-center w-responsive mx-auto mb-5`}
                         style={{ fontSize: "1.5rem" }}
                     >
@@ -80,11 +76,9 @@ const Contact = (props) => {
                                 onChange={handleChange}
                                 style={{
                                     backgroundColor:
-                                        props.mode === "dark"
-                                            ? "#4d4d4d"
-                                            : "white",
+                                        mode === "dark" ? "#4d4d4d" : "white",
                                     WebkitTextFillColor:
-                                        props.mode === "dark" ? "#BEBEBE" : "",
+                                        mode === "dark" ? "#BEBEBE" : "",
                                 }}
                                 required
                             />
@@ -99,11 +93,9 @@ const Contact = (props) => {
                                 onChange={handleChange}
                                 style={{
                                     backgroundColor:
-                                        props.mode === "dark"
-                                            ? "#4d4d4d"
-                                            : "white",
+                                        mode === "dark" ? "#4d4d4d" : "white",
                                     WebkitTextFillColor:
-                                        props.mode === "dark" ? "#BEBEBE" : "",
+                                        mode === "dark" ? "#BEBEBE" : "",
                                 }}
                                 required
                             />
@@ -118,11 +110,9 @@ const Contact = (props) => {
                                 onChange={handleChange}
                                 style={{
                                     backgroundColor:
-                                        props.mode === "dark"
-                                            ? "#4d4d4d"
-                                            : "white",
+                                        mode === "dark" ? "#4d4d4d" : "white",
                                     WebkitTextFillColor:
-                                        props.mode === "dark" ? "#BEBEBE" : "",
+                                        mode === "dark" ? "#BEBEBE" : "",
                                 }}
                                 required
                                 autoComplete="off"
@@ -141,13 +131,11 @@ const Contact = (props) => {
                                     }}
                                     style={{
                                         backgroundColor:
-                                            props.mode === "dark"
+                                            mode === "dark"
                                                 ? "#4d4d4d"
                                                 : "white",
                                         WebkitTextFillColor:
-                                            props.mode === "dark"
-                                                ? "#BEBEBE"
-                                                : "",
+                                            mode === "dark" ? "#BEBEBE" : "",
                                         minHeight: "5rem",
                                         maxHeight: "10rem",
                                         position: "relative",
@@ -165,7 +153,7 @@ const Contact = (props) => {
                                         right: "0.5rem",
                                         fontSize: "0.8rem",
                                         color:
-                                            props.mode === "dark"
+                                            mode === "dark"
                                                 ? "#BEBEBE"
                                                 : "#333",
                                     }}
@@ -175,9 +163,7 @@ const Contact = (props) => {
                             </div>
                             <button
                                 className={`btn btn-${
-                                    props.mode === "light"
-                                        ? "primary"
-                                        : "success"
+                                    mode === "light" ? "primary" : "success"
                                 } mt-3`}
                             >
                                 Send
@@ -187,7 +173,7 @@ const Contact = (props) => {
                         <div className="col-lg-6 col-md-8 text-center my-5">
                             <ul
                                 className={`list-unstyled text-${
-                                    props.mode === "dark" ? "light" : "dark"
+                                    mode === "dark" ? "light" : "dark"
                                 } mb-0`}
                             >
                                 <li>
@@ -207,7 +193,7 @@ const Contact = (props) => {
                                         href="mailto:user@example.com"
                                         style={{ textDecoration: "none" }}
                                         className={`text-${
-                                            props.mode === "light"
+                                            mode === "light"
                                                 ? "primary"
                                                 : "danger"
                                         }`}
